@@ -1,3 +1,6 @@
+// Sean Sabo UCID: 30181990
+// Jericho Huelar UCID: 30196518
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

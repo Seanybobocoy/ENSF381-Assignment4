@@ -3,14 +3,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const logo = process.env.PUBLIC_URL + '/images/Seacho.png';
   return (
-    <header style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
-      <div style={{ width: '50%' }}>Logo</div> {/* Replace with actual logo */}
-      <nav style={{ width: '50%', textAlign: 'right' }}>
-        <Link to="/" style={{ marginRight: '20px' }}>Home</Link>
-        <Link to="/products" style={{ marginRight: '20px' }}>Products</Link>
-        <Link to="/login" style={{ marginRight: '20px' }}>Login</Link>
-      </nav>
+    <header>
+      <div style={{ padding: '20px', textAlign: 'right'}}>
+        Seacho
+      </div>
+      <div>
+        <img src={logo} alt="Logo" style={{ padding: '20px', width: '100px' }} />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Link to="/" style={{ padding: '20px', textAlign: 'left' }}>Home</Link>
+        <Link to="/products" style={{ padding: '20px', textAlign: 'center' }}>Products</Link>
+        <Link to="/login" style={{ padding: '20px', textAlign: 'right' }}>Login</Link>
+      </div>
     </header>
   );
 };

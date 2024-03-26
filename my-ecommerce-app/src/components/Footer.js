@@ -3,8 +3,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ marginTop: '20px', textAlign: 'left' }}>
-      <p>Copyright © Seacho 2024</p>
+    <footer style={{ padding: '20px', textAlign: 'left' }}>
+      <p style={{ margin: '0' }}>© 2024 Seacho. All rights reserved.</p>
     </footer>
   );
 };
