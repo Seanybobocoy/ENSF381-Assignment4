@@ -9,54 +9,58 @@ const SignupForm = ({ switchToLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || email.trim() === '') {
-      alert('Please fill in all fields.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      alert('Passwords do not match.');
-      return;
-    }
-    // Simulate signup logic (replace with your actual signup logic)
+    // Insert validation and submission logic here
     alert('Signup successful!');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="signup-username">Username:</label>
-      <input
-        type="text"
-        id="signup-username"
-        placeholder="Enter your username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="signup-password">Password:</label>
-      <input
-        type="password"
-        id="signup-password"
-        placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <label htmlFor="confirm-password">Confirm Password:</label>
-      <input
-        type="password"
-        id="confirm-password"
-        placeholder="Confirm your password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button type="submit">Signup</button>
-      <button onClick={switchToLogin}>Switch to Login</button>
+    <form onSubmit={handleSubmit} style={{ maxWidth: '300px', padding: '20px' }}>
+      <div>
+        <label htmlFor="signup-username">Username:</label>
+        <input
+          type="text"
+          id="signup-username"
+          placeholder="Enter your username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="signup-password">Password:</label>
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="confirm-password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm your password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
+        <button type="submit">Signup</button>
+      </div>
+      <div>
+        <button type="button" onClick={switchToLogin}>Switch to Login</button>
+      </div>
     </form>
   );
 };

@@ -7,38 +7,38 @@ const LoginForm = ({ switchToSignup }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.trim() === '' || password.trim() === '') {
-      alert('Please fill in all fields.');
-      return;
-    }
-    // Simulate login logic (replace with your actual authentication logic)
-    if (username === 'example' && password === 'password') {
-      alert('Login successful!');
-    } else {
-      alert('Invalid username or password.');
-    }
+    // Insert validation and submission logic here
+    alert('Login successful!');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        placeholder="Enter your username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-      <button onClick={switchToSignup}>Switch to Signup</button>
+    <form onSubmit={handleSubmit} style={{ maxWidth: '300px', padding: '20px' }}>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div>
+        <button type="submit">Login</button>
+      </div>
+      <div>
+        <button type="button" onClick={switchToSignup}>Switch to Signup</button>
+      </div>
     </form>
   );
 };
