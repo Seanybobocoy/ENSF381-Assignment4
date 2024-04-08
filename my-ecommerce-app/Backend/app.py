@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for
+from flask import Flask, request, jsonify, redirect, url_for, session
 app = Flask(__name__)
 
 users = []
@@ -33,8 +33,8 @@ def login():
     # Validate credentials
     for user in users:
         if user['username'] == username and user['password'] == password:
-            # Redirect to product page if successful. Adjust as per your application.
-            return redirect(url_for('product_page'))
+            session['user'] = username  # Store the username in session
+            return jsonify({'message': 'Login successful'}), 200
 
     return jsonify({'error': 'Invalid username or password'}), 401
 
@@ -45,10 +45,14 @@ def product_page():
 
 @app.route('/products', methods=['GET'])
 def get_products():
-    # You might want to check if the user is logged in before returning products
+    if 'user' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
     return jsonify(products)
 
-
+@app.route('/logout', methods=['GET'])
+def logout():
+    session.pop('user', None)  # Remove 'user' from session
+    return jsonify({'message': 'Logged out successfully'}), 200
 
 products = [
  {
@@ -122,5 +126,6 @@ products = [
  "image": 'images/product10.jpg'
  }
 ]
+
 if __name__ == '__main__':
     app.run(debug=True)
